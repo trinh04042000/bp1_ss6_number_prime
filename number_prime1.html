@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get" action="">
+    Nhập số: <input type="text" id="number" value="0"/>
+    <input type="button" value="In kết quả" onclick="print_snt()"/>
+</form>
+<div id="result">
+</div>
+<script>
+    function check_number_prime(n) {
+        var flag = true;
+        if (n < 2) {
+            flag = false;
+        } else if (n == 2) {
+            flag = true;
+        } else {
+            for (i = 2; i < n ;i++) {
+                if ( n % i == 0) {
+                    flag = false;
+                } else {
+                    flag = true;
+                }
+            }
+        }
+          return flag;
+            }
+    function print_snt()
+    {
+
+        var number = document.getElementById("number").value;
+
+
+        number = parseInt(number);
+        var html = '';
+        for (var i = 1; i <= number; i++) {
+            if (check_number_prime(i)){
+                html += i + ' <br/>';
+            }
+        }
+        document.getElementById("result").innerHTML = html;
+    }
+
+
+</script>
+</body>
+</html>
